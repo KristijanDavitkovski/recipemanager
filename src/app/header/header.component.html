@@ -1,0 +1,27 @@
+
+<nav class="navbar navbar-default">
+    <div class="navbar-left">  <img src="https://img.freepik.com/premium-vector/good-food-logo-design_79169-10.jpg?w=2000" alt="Logo" width="200" height="90px" class="img-circle" ></div>
+    <div class="containter-fluid">
+        <div class="navbar-header">
+        </div>
+        <div class="collapse navbar-collapse" style="height: 100px; background-color: darkgreen;border-width: 5px; border-radius: 5px;">
+            <ul class="nav navbar-nav" style="margin-top:20px; margin-left: 10px; background-color: green;border-width: 3px; border-radius: 5px; border-color: rgb(9, 49, 1);">
+                <li routerLinkActive="active"><a routerLink="recipes" style="font-style: normal; color:white" *ngIf="isAuthenticated">Recipes</a></li>
+                <li routerLinkActive="active"><a routerLink="auth" style="font-style: normal;  color:white" *ngIf="!isAuthenticated">Authentication</a></li>
+                <li routerLinkActive="active"><a routerLink="shopping-list" style="font-style: normal;  color:white">Shopping List</a></li>
+            </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li *ngIf="isAuthenticated" (click)="onLogout()">
+                <a  style="font-style: italic; font-size: medium; cursor: pointer;color:white; margin-top: 20px; margin-right: 20px;">Logout</a>
+            </li>
+            <li class="dropdown" appDropdown *ngIf="isAuthenticated">
+                <a  class="dropdown-toggle" role="button" style=" font-size: medium; cursor: pointer;color:white;  margin-top: 20px; margin-right: 20px;">Manage <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                <li><a (click)="saveData()" style="color:white;cursor: pointer; background-color: darkgreen;">Save data</a></li>
+                <li><a (click)="fetchData()" style="color:white;cursor: pointer; background-color: darkgreen;">Fetch Data</a></li>
+            </ul>
+            </li>
+        </ul>
+        </div>
+    </div>
+</nav>
